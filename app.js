@@ -10,6 +10,7 @@ var passport = require('passport');
 var LocalStrategy =require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+//mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;
 
@@ -46,6 +47,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //express validar
+//app.use(express.bodyParser());
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
     var namespace = param.split('.')
